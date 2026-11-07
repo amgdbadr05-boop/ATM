@@ -1,0 +1,7 @@
+main{flex:1;padding:clamp(16px,4vw,32px);padding-bottom:24px}
+.screen{display:none}.screen.active{display:block}
+h2{font-size:clamp(28px,6.4vw,42px);font-weight:700;line-height:1.15;margin-bottom:12px}
+.sub{font-size:clamp(17px,3.8vw,22px);color:var(--muted);line-height:1.4;margin-bottom:22px}
+.step{color:var(--teal);font-weight:700;font-size:clamp(14px,3.2vw,18px);letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+.bar{height:12px;border-radius:99px;background:var(--track);margin-bottom:22px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal);border-radius:99px;transition:width .3s}

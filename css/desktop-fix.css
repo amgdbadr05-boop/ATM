@@ -1,0 +1,78 @@
+
+/* Desktop/laptop responsiveness: allow the document to grow and scroll naturally. */
+html, body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body {
+  min-height: 100dvh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.app {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 100dvh;
+  height: auto;
+  overflow: visible !important;
+  flex: 1 0 auto;
+}
+main {
+  flex: 1 0 auto;
+  min-height: 0;
+  overflow: visible;
+}
+.screen.active {
+  display: block;
+  min-width: 0;
+}
+footer {
+  position: static;
+  flex-shrink: 0;
+}
+.keys, .key, .display {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+.key {
+  min-width: 0;
+  min-height: 54px;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.key:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* On laptops and desktop browsers, avoid the cramped two-column keypad layout. */
+@media (min-width: 600px) {
+  .narrow { max-width: 680px; margin-inline: auto; }
+  #id.active, #otp.active {
+    display: block;
+  }
+  .keys { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .key { height: clamp(58px, 8vh, 78px); }
+}
+
+/* Short desktop windows and landscape displays remain vertically scrollable. */
+@media (max-height: 700px) {
+  body { align-items: flex-start; }
+  .app { min-height: 100dvh; }
+  footer { position: static; }
+}
+
+/* Large desktop: retain a centered kiosk-like panel without clipping its contents. */
+@media (min-width: 900px) {
+  body { padding: 24px 0; }
+  .app {
+    min-height: calc(100dvh - 48px);
+    border-radius: 24px;
+    overflow: visible !important;
+  }
+}

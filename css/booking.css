@@ -1,0 +1,15 @@
+.chips{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 10px;margin-bottom:12px}
+.chip{flex:none;padding:14px 20px;border:3px solid var(--line);border-radius:16px;background:#fff;font-weight:700;font-size:clamp(16px,3.6vw,20px)}
+.chip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-bottom:14px}
+.slot{padding:18px 8px;border:3px solid var(--line);border-radius:16px;background:#fff;font-weight:700;font-size:clamp(16px,3.6vw,20px)}
+.slot:hover:not(:disabled){border-color:var(--teal)}
+.slot:disabled{text-decoration:line-through;opacity:.4;cursor:not-allowed}
+.badge{font-style:normal;align-self:flex-start;background:#e6edf5;color:var(--navy);border-radius:99px;padding:4px 14px;font-weight:700;font-size:clamp(13px,3vw,16px)}
+.badge.in{background:var(--teal-soft);color:var(--teal)}
+.tile.on{border-color:var(--teal);background:var(--teal-soft)}
+.dir-layout{display:grid;gap:14px}
+.route{padding-inline-start:1.4em;font-size:clamp(17px,3.8vw,22px);font-weight:600;line-height:1.7}
+.card h3{text-transform:none;letter-spacing:0;color:var(--navy);font-size:clamp(20px,4.4vw,28px);margin-bottom:8px}
+.trow{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:clamp(16px,3.6vw,20px)}
+.trow:last-of-type{border-bottom:0}.trow span{color:var(--muted)}.trow b{text-align:end}

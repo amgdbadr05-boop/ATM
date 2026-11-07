@@ -1,0 +1,3 @@
+/* Self-hosted font: a kiosk must not depend on Google Fonts. Put Inter-Variable.woff2 in assets/fonts/. */
+@font-face{font-family:Inter;font-weight:400 700;font-display:swap;
+  src:local("Inter"),url("../assets/fonts/Inter-Variable.woff2") format("woff2")}

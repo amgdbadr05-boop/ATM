@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a2545">
+<title>MediTouch ATM</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/screens.css">
+<link rel="stylesheet" href="css/tiles.css">
+<link rel="stylesheet" href="css/keypad.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/dialog.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/forms.css">
+<link rel="stylesheet" href="css/booking.css">
+<link rel="stylesheet" href="css/ticket.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/adaptive.css">
+<link rel="stylesheet" href="css/desktop-fix.css">\n<link rel="stylesheet" href="css/health.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div><h1>MediTouch ATM</h1><p id="sub"></p></div>
+    <div class="lang">
+      <button id="langBtn" aria-haspopup="true" aria-expanded="false">English ▾</button>
+      <ul id="langMenu"><li><button data-lang="en">English</button></li><li><button data-lang="ar">العربية</button></li></ul>
+    </div>
+  </header>
+  <div class="demo-banner" id="demoBanner" role="status" hidden data-t="demo"></div>
+  <nav class="navbar" id="navbar" hidden aria-label="Navigation">
+    <button class="nav-btn" id="backBtn" type="button"><span class="arrow" aria-hidden="true">←</span><span data-t="back"></span></button>
+    <button class="nav-btn home" id="homeBtn" type="button" data-go="home"><span data-t="home"></span></button>
+  </nav>
+
+  <main>
+    <section class="screen active" id="home" data-sub-t="subHome">
+      <h2 data-t="welcome"></h2>
+      <p class="sub" data-t="choose"></p>
+      <div class="grid">
+        <button class="tile primary" data-go="id" data-flow="book">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18M12 13v5M9.5 15.5h5"/></svg>
+          <b data-t="bookT"></b><span data-t="bookS"></span></button>
+        <button class="tile" data-go="id" data-flow="checkin">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 10h6M7 14h4"/></svg>
+          <b data-t="checkT"></b><span data-t="checkS"></span></button>
+        <button class="tile" data-go="register" data-flow="register">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6M19 8v6M16 11h6"/></svg>
+          <b data-t="regT"></b><span data-t="regS"></span></button>
+        <button class="tile" data-go="dir">
+          <svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <b data-t="findT"></b><span data-t="findS"></span></button>
+        <button class="tile" data-go="id" data-flow="reprint">
+          <svg viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7" rx="1"/></svg>
+          <b data-t="reT"></b><span data-t="reS"></span></button>
+        <button class="tile wide" data-go="info">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
+          <b data-t="health"></b><span data-t="healthS"></span></button>
+      </div>
+    </section>
+
+    <section class="screen narrow" id="id">
+      <div class="step"></div><div class="bar"><i></i></div>
+      <h2 data-t="enterId"></h2><p class="sub" data-t="idHint"></p>
+      <div class="display" id="idDisplay" aria-live="polite"></div><div class="keys" id="idKeys"></div>
+      <div class="actions"><button class="btn ghost" data-back data-t="back"></button><button class="btn fill flex2" id="idNext" data-t="confirm"></button></div>
+    </section>
+
+    <section class="screen narrow" id="otp">
+      <div class="step"></div><div class="bar"><i></i></div>
+      <h2 data-t="otpT"></h2><p class="sub" data-t="otpHint"></p><p class="demo-hint" id="otpDemo"></p>
+      <div class="display" id="otpDisplay" aria-live="polite"></div><div class="keys" id="otpKeys"></div>
+      <div class="actions"><button class="btn ghost" data-back data-t="back"></button><button class="btn fill flex2" id="otpNext" data-t="verify"></button></div>
+    </section>
+
+    <section class="screen narrow" id="nf" data-sub-t="subHome">
+      <h2 data-t="nfT"></h2><p class="sub" data-t="nfS"></p>
+      <div class="actions"><button class="btn ghost" data-back data-t="back"></button><button class="btn fill flex2" data-go="register" data-flow="register" data-t="regNow"></button></div>
+    </section>
+
+    <section class="screen narrow" id="register">
+      <div class="step"></div><div class="bar"><i></i></div>
+      <h2 data-t="regForm"></h2><p class="sub" data-t="regHint"></p>
+      <form id="regForm" novalidate autocomplete="off">
+        <div class="field"><label for="rName" data-t="rName"></label><input id="rName" type="text" maxlength="80" autocomplete="off"></div>
+        <div class="field"><label for="rId" data-t="rId"></label><input id="rId" type="password" inputmode="numeric" maxlength="12" autocomplete="off"></div>
+        <div class="field"><label for="rDob" data-t="rDob"></label><input id="rDob" type="date"></div>
+        <div class="field"><label for="rPhone" data-t="rPhone"></label><input id="rPhone" type="tel" inputmode="tel" maxlength="16" autocomplete="off"></div>
+        <div class="field"><label for="rLang" data-t="rLang"></label><select id="rLang"><option value="en" data-t="langEn"></option><option value="ar" data-t="langAr"></option></select></div>
+        <label class="check"><input id="rConsent" type="checkbox"><span data-t="rConsent"></span></label>
+        <p class="form-err" id="regErr" role="alert" hidden data-t="errForm"></p>
+        <div class="actions"><button type="button" class="btn ghost" data-back data-t="back"></button><button type="submit" class="btn fill flex2" data-t="confirm"></button></div>
+      </form>
+    </section>
+
+    <section class="screen" id="dept"><div class="step"></div><div class="bar"><i></i></div>
+      <h2 data-t="deptT"></h2><p class="sub" data-t="deptS"></p><div class="list" id="deptList"></div></section>
+
+    <section class="screen" id="doctor"><div class="step"></div><div class="bar"><i></i></div>
+      <h2 data-t="docT"></h2><p class="sub" data-t="docS"></p><div class="list" id="docList"></div></section>
+
+    <section class="screen" id="slot"><div class="step"></div><div class="bar"><i></i></div>
+      <h2 data-t="slotT"></h2><p class="sub" data-t="slotS"></p>
+      <div class="chips" id="dateChips" role="tablist"></div>
+      <div class="slots" id="slotGrid"></div><p class="note" id="noSlots" hidden data-t="noSlots"></p></section>
+
+    <section class="screen narrow" id="review"><div class="step"></div><div class="bar"><i></i></div>
+      <h2 data-t="revT"></h2><div class="card" id="revBox"></div>
+      <div class="actions"><button class="btn ghost" data-back data-t="back"></button><button class="btn fill flex2" id="bookBtn" data-t="confirmBook"></button></div></section>
+
+    <section class="screen" id="appts"><div class="step"></div><div class="bar"><i></i></div>
+      <h2 data-t="apptsT"></h2><p class="sub" data-t="apptsS"></p><div class="list" id="apptList"></div>
+      <div class="narrow" id="noAppts" hidden><p class="note" data-t="noAppts"></p><div class="actions"><button class="btn fill" data-go="id" data-flow="book" data-t="bookNew"></button></div></div></section>
+
+    <section class="screen narrow" id="ticket" data-sub-t="subHome">
+      <h2 id="tkHead"></h2><p class="sub" id="tkSub"></p>
+      <div class="ticket" id="ticketBox"></div>
+      <div class="actions no-print"><button class="btn ghost" id="tkDir" data-t="directionsBtn"></button><button class="btn ghost" id="tkPrint" data-t="printBtn"></button><button class="btn fill" data-go="home" data-t="doneBtn"></button></div></section>
+
+    <section class="screen" id="dir" data-sub-t="subDir">
+      <h2 data-t="way"></h2><p class="sub" data-t="dirS"></p>
+      <div class="dir-layout"><div class="list" id="dirList"></div><div class="card" id="dirDetail"></div></div></section>
+
+    <section class="screen" id="info" data-sub-t="subHealth">
+      <h2 data-t="know"></h2><p class="sub" data-t="pick"></p>
+      <div class="list">
+        <button class="tile" type="button" data-health-topic="visit"><b data-t="i1"></b><span data-t="i1s"></span></button>
+        <button class="tile" type="button" data-health-topic="tests"><b data-t="i2"></b><span data-t="i2s"></span></button>
+        <button class="tile" type="button" data-health-topic="medicines"><b data-t="i3"></b><span data-t="i3s"></span></button>
+        <button class="tile" type="button" data-health-topic="services"><b data-t="i4"></b><span data-t="i4s"></span></button>
+        <button class="tile" type="button" data-health-topic="wellness"><b data-t="i5"></b><span data-t="i5s"></span></button>
+      </div><p class="note" data-t="notSure"></p></section>
+
+    <section class="screen" id="healthDetail" data-sub-t="subHealth">
+      <div class="health-detail-head">
+        <button class="btn ghost health-back" id="healthBack" type="button" data-t="back"></button>
+      </div>
+      <h2 id="healthTitle"></h2>
+      <p class="sub" id="healthIntro"></p>
+      <div id="healthContent" class="health-content"></div>
+      <div class="note health-disclaimer" id="healthDisclaimer"></div>
+      <div class="actions"><button class="btn fill" data-go="home" data-t="doneBtn"></button></div>
+    </section>
+  </main>
+
+  <footer id="foot">
+    <button class="help" id="help" data-t="human"></button>
+    <p class="privacy" data-t="privacy"></p>
+  </footer>
+</div>
+
+<dialog id="dlg"><p id="dlgMsg"></p><button class="btn fill" style="width:100%" id="dlgClose" data-t="ok"></button></dialog>
+<dialog id="sessDlg" aria-labelledby="sessTxt"><p id="sessTxt"><span data-t="sessWarn"></span> <b id="sessCount">15</b></p>
+  <div class="actions"><button class="btn ghost" id="sessEnd" data-t="sessEnd"></button><button class="btn fill" id="sessKeep" data-t="sessKeep"></button></div></dialog>
+
+<script src="js/config.js" defer></script>
+<script src="js/state.js" defer></script>
+<script src="js/i18n.js" defer></script>
+<script src="js/language.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/api.js" defer></script>
+<script src="js/barcode.js" defer></script>
+<script src="js/render.js" defer></script>\n<script src="js/health.js" defer></script>
+<script src="js/dialog.js" defer></script>
+<script src="js/session.js" defer></script>
+<script src="js/navigation.js" defer></script>
+<script src="js/keypad.js" defer></script>
+<script src="js/flows.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>

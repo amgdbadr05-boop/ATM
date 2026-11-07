@@ -1,0 +1,8 @@
+.queue{text-align:center;margin-bottom:14px}
+.queue small{display:block;font-size:clamp(15px,3.4vw,20px);color:var(--muted);margin-bottom:6px}
+.queue strong{font-size:clamp(64px,18vw,110px);color:var(--teal);font-weight:700;line-height:1;letter-spacing:.02em}
+.card{background:#fff;border:3px solid var(--line);border-radius:var(--r);padding:clamp(16px,3.5vw,24px);margin-bottom:14px}
+.card h3{color:var(--teal);font-size:clamp(14px,3.2vw,18px);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.card ol{list-style:none;font-size:clamp(18px,4.2vw,24px);font-weight:600;line-height:1.6}
+.card small{display:block;font-size:clamp(15px,3.4vw,20px);color:var(--muted)}
+.card strong{font-size:clamp(22px,5vw,32px)}

@@ -1,0 +1,9 @@
+header{background:var(--navy);color:#fff;padding:max(20px,env(safe-area-inset-top)) clamp(16px,4vw,32px) 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+header h1{font-size:clamp(20px,4.6vw,28px);font-weight:700;line-height:1.15}
+header p{font-size:clamp(14px,3.2vw,18px);color:#b9c8dd;margin-top:2px}
+.lang{position:relative}
+.lang>button{border:2px solid #fff;border-radius:999px;color:#fff;font-weight:600;font-size:clamp(15px,3.4vw,20px);padding:12px 22px;white-space:nowrap}
+.lang ul{position:absolute;inset-inline-end:0;top:calc(100% + 8px);list-style:none;background:#fff;color:var(--navy);border:2px solid var(--line);border-radius:16px;overflow:hidden;min-width:150px;display:none;z-index:5}
+.lang ul.open{display:block}
+.lang li button{width:100%;text-align:start;padding:14px 18px;font-weight:600}
+.lang li button:hover{background:var(--bg)}

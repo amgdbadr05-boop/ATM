@@ -1,0 +1,11 @@
+
+.health-detail-head{display:flex;justify-content:flex-start;margin-bottom:16px}
+.health-back{flex:0 1 auto;min-width:140px}
+.health-content{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
+.health-section{background:#fff;border:2px solid var(--line);border-radius:20px;padding:clamp(16px,3vw,24px);min-width:0}
+.health-section h3{font-size:clamp(19px,3vw,25px);color:var(--teal);margin-bottom:12px;line-height:1.25}
+.health-section ul{padding-inline-start:24px;display:grid;gap:10px}
+.health-section li{font-size:clamp(16px,2.3vw,19px);line-height:1.5;color:var(--navy);padding-inline-start:3px}
+.health-disclaimer{margin:16px 0 20px;border-color:#e5c98b;background:#fffaf0;color:#5e481d}
+@media(max-width:650px){.health-content{grid-template-columns:1fr}}
+@media(min-width:1100px){.health-content{grid-template-columns:repeat(2,minmax(0,1fr))}}

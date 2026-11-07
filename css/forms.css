@@ -1,0 +1,9 @@
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label,.check{font-weight:600;font-size:clamp(16px,3.6vw,20px)}
+input,select{width:100%;height:clamp(56px,10vw,68px);border:3px solid var(--line);border-radius:16px;padding:0 16px;font:inherit;font-size:clamp(18px,4vw,24px);background:#fff;color:var(--navy)}
+input:focus,select:focus{outline:3px solid #2b7be4;border-color:#2b7be4}
+.check{display:flex;gap:14px;align-items:flex-start;margin:6px 0 18px;line-height:1.4}
+.check input{width:30px;height:30px;flex:none;margin-top:2px;accent-color:var(--teal)}
+.field.err input,.field.err select{border-color:var(--red)}
+.check.err{color:var(--red)}
+.form-err{color:var(--red);font-weight:700;margin-bottom:14px}

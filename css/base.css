@@ -1,0 +1,10 @@
+:root{
+  --navy:#0a2545; --teal:#0f5f59; --teal-soft:#d9eeeb; --red:#b42318;
+  --bg:#f2f6fa; --card:#ffffff; --line:#c8d4e2; --muted:#4a5b73; --track:#d6e0ec;
+  --r:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--navy);display:flex;justify-content:center}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+button:focus-visible{outline:3px solid #2b7be4;outline-offset:2px}
